@@ -76,6 +76,11 @@ p3 <- ggplot(df.sleep, aes(x = deep_sleep_in_minutes)) +
   ggtitle("Deep sleep time (minutes)")+
   theme(plot.title = element_text(hjust = 0.5))
 
+p32 <- ggplot(df.sleep, aes(x = overall_score)) +
+  geom_histogram() +
+  ggtitle("Sleep (overall score)")+
+  theme(plot.title = element_text(hjust = 0.5))
+
 
 p4 <- ggplot(df.steps, aes(x = steps)) +
   geom_histogram() +
@@ -100,6 +105,8 @@ p6 <- ggplot(df, aes(x = level, y = count)) +
 
 #grid.arrange(p1, p2, p3, p4, p5, p6, ncol = 3, nrow = 3)
 
-plot_grid(p1, p2, p3, p4, p5, p6,
-          ncol = 3, nrow = 3,
-          labels = c("a)", "b)", "c)", "d)", "e)", "f)"))
+pdf(file = "allplots.pdf", width = 10, height = 12)
+plot_grid(p1, p2, p3, p32, p4, p5, p6,
+          ncol = 3, nrow = 4,
+          labels = c("a)", "b)", "c)", "d)", "e)", "f)", "g)"))
+dev.off()

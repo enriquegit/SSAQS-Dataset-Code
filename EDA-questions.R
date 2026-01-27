@@ -42,7 +42,9 @@ for(u in users){
   all <- rbind(all, df)
 }
 
-hist(all$stress)
+pdf(file = "stress-all.pdf", width = 5, height = 4)
+hist(all$stress, main="Histogram of daily self-reported stress levels", xlab = "stress level")
+dev.off()
 
 summary(all)
 
