@@ -25,7 +25,7 @@ for(u in users){
     df.activity <- rbind(df.activity, df)
   }
   
-  f <- paste0(ROOT_DIR,u,"/hr.csv")
+  f <- paste0(ROOT_DIR,u,"/hrv.csv")
   if(file.exists(f)){
     df <- read.csv(f)
     df.hr <- rbind(df.hr, df)
@@ -67,7 +67,7 @@ p1 <- ggplot(df.oxygen, aes(x = value)) +
 
 p2 <- ggplot(df.hr, aes(x = rmssd)) +
   geom_histogram() +
-  ggtitle("Heart rate (rmssd)")+
+  ggtitle("HRV (rmssd)")+
   theme(plot.title = element_text(hjust = 0.5))
 
 
